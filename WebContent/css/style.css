@@ -45,6 +45,9 @@ tr.row1 {
 tr.row0 {
         background-color: #ffffff;
 }
+select {
+    height: 30px;
+}
 
 li {
     margin-top: 10px;
