@@ -59,7 +59,7 @@ public class ReportsCreateServlet extends HttpServlet {
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             r.setCreated_at(currentTime);
             r.setUpdated_at(currentTime);
-
+            r.setIine_count(0);
             List<String> errors = ReportValidator.validate(r);
             if(errors.size() > 0) {
                 em.close();
