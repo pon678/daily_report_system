@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Report;
 import utils.DBUtil;
 
 /**
@@ -32,7 +33,11 @@ public class ReportsIineServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         EntityManager em = DBUtil.createEntityManager();
+        Report r = em.find(Report.class, Integer.parseInt(request.getParameter("id")));
 
+        Integer iine_count = r.getIine_count();
+        iine_count =iine_count+1;
+        r.setIine_count(iine_count);
         em.getTransaction().begin();
         em.getTransaction().commit();
         em.close();
